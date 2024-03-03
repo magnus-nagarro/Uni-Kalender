@@ -8,15 +8,30 @@
 	<header>
 		<h1> Uniplaner </h1>
         <div class="login">
-            <a href="/Uni-Kalender/frontend/login-elements/login.html" id="loginButton">Login</a>
+            <div class="dropdown">
+                <button class="dropbtn">Info</button>
+                <div class="dropdown-content">
+                    <div class="dropdown-right">
+                        <a href="#" class="contact-link">Contact</a>
+                        <div class="dropdown-content-right">
+                            <a href="#">E-Mail</a>
+                            <a href="#">Phone Number</a>
+                            <a href="#">Adresse</a>
+                        </div>
+                    </div>
+                    <a href="#">Impressum</a>
+                    <a href="#">About Us</a>
+                </div>
+            </div>
             <a href="/Uni-Kalender/frontend/main-site/main.html" id="main-site">Dashboard</a>
+            <a href="/Uni-Kalender/frontend/login-elements/login.html" id="loginButton">Login</a>
         </div>
 	</header>
 	<main>
 		<div class="carousel">
-			<div class="slide"><img src="./picture-1.jpg" alt="Image 1"></div>
-			<div class="slide"><img src="./picture-2.jpg" alt="Image 2"></div>
-		    <div class="slide"><img src="./picture-3.jpg" alt="Image 3"></div>
+			<div class="slide"><img src="./carousel-container-images/picture-1.jpg" alt="Image 1"></div>
+			<div class="slide"><img src="./carousel-container-images/picture-2.jpg" alt="Image 2"></div>
+		    <div class="slide"><img src="./carousel-container-images/picture-3.jpg" alt="Image 3"></div>
 			<div class="buttons">
 				<button class="button-slide" data-slide="0"></button>
 				<button class="button-slide" data-slide="1"></button>
@@ -24,18 +39,59 @@
 			</div>
 		</div>
         <div class="information-container">
-            <div class="icon-container">
-                <img src="./awarness-icon.png" alt="Icon 1">
-                <p>Text</p>
+            <div class="text-on-top">
+                <p> Some Advantages of Our Project!</p>
             </div>
+            <button class="arrow arrow-left" onclick="changeInformation(-1)">&#8249;</button>
             <div class="icon-container">
-                <img src="./information.png" alt="Icon 2">
-                <p>Text</p>
+                   <img src="./information-container-icons/student-friendly.png" alt="Icon 1">
+                <p> Student-Friendly Interface </p>
+                <!--
+                <div class="inside-icon-text">
+                    Navigate your academic journey with ease using our student-friendly interface! Our university schedule planner puts you in control, providing an intuitive platform to access your schedule effortlessly. Discover the simplicity of finding information about classes, planning your activities, and staying organized throughout your academic year. With a user-friendly design, managing your schedule has never been this convenient!"
+                </div>
+                -->
             </div>
-            <div class="icon-container">
-                <img src="./message.png" alt="Icon 3">
-                <p>Text</p>
+            <div class="icon-container hide">
+            <img src="./information-container-icons/time-saving.png" alt="Icon 2">
+                <p>Time-saving for Professors</p>
+                <!--
+                <div class="inside-icon-text">
+                    We understand the value of your time. Our schedule planner is designed with professors in mind, offering a powerful tool that simplifies the scheduling process. Experience the freedom of effortlessly managing your classes, office hours, and commitments in one place. This means less paperwork and administrative headaches, allowing you to focus on delivering quality education to your students.
+                </div>
+                -->
             </div>
+            <div class="icon-container hide">
+                <img src="./information-container-icons/real-time-updates.png" alt="Icon 3">
+                <p>Real-time Updates </p>
+                <!--
+                <div class="inside-icon-text">
+                    Stay in the loop with our real-time update feature! As a professor, you need to be informed about any changes instantly. Our schedule planner ensures you receive timely notifications for any adjustments to your schedule, keeping you in control and eliminating surprises. Never miss a beat – stay connected and organized with our real-time updates
+                </div>
+                -->
+            </div>
+            <div class="icon-container hide">
+                <img src="./information-container-icons/enhanced-communication.png" alt="Icon 4">
+                <p>Enhanced Communication</p>
+                <!--
+                <div class="inside-icon-text">
+                    Communication is key, and our schedule planner empowers professors to collaborate like never before. Seamlessly connect with your peers, share valuable resources, and coordinate events effortlessly. Foster a community of academic excellence within our platform, breaking down communication barriers and enhancing collaboration across departments.
+                </div>
+                -->
+            </div>
+            <button class="arrow arrow-right" onclick="changeInformation(1)">&#8250;</button>
+        </div>
+        <div class="extra-container-to-use">
+
+        </div>
+        <div class="introduction-container">
+            <p>
+                Welcome to the innovative course planning project, a dynamic platform designed to facilitate seamless collaboration between professors and students in the academic realm. Recognizing the pivotal role that effective course planning plays in fostering a rich learning environment, we have developed a user-friendly and intuitive system to streamline the process and enhance the overall educational experience.
+                This project aims to revolutionize the traditional approach to course scheduling by harnessing the power of technology to create a more efficient, transparent, and adaptable system. By providing a centralized hub for professors and students to collaboratively plan their academic journeys, we aspire to foster a stronger sense of engagement, communication, and mutual understanding.
+                Our platform empowers professors to easily design and manage course schedules, taking into consideration both curriculum requirements and the individual needs of students. Simultaneously, students gain the ability to actively participate in the course planning process, expressing preferences and contributing valuable input. This two-way communication not only optimizes the allocation of resources but also cultivates a sense of shared responsibility and accountability.
+                In an era where flexibility and adaptability are paramount, our project leverages cutting-edge technology to offer real-time updates, personalized notifications, and data-driven insights. This ensures that course planning remains a dynamic and responsive process, evolving in sync with the ever-changing educational landscape.
+                Join us on this journey to reimagine course planning, where collaboration between professors and students takes center stage, shaping a more engaging and tailored educational experience for all. Together, let's embrace the future of education through effective and inclusive course planning.
+            </p>
         </div>
 		<script src="script.js"></script>
 	</main>
