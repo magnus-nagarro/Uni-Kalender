@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="/Uni-Kalender/calendar-js-2.10.12/dist/calendar.js"></script>
     <script type="module" src="scripts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+z0G/MLO5Sv+VfOXBC+2Ujr4YY/xWtIi+NPcCkgw5Z937HAA5V0M0cpP1M+Mg==" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -19,15 +20,19 @@
             <img src="logo.png" alt="Logo" class="logo">
             <h1>Uniplaner</h1>
         </div>
+        <div class="user-container">
+            <p>You are logged in as <span id="username">USER1</span></p>
+        </div>
     </header>
 
     <nav>
         <ul>
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="main-site.html">Home</a></li>
-            <li><a href="lectures.html">Vorlesungen</a></li>
-            <li><a href="professors.html">Dozenten</a></li>
+            <li><a href="/Uni-Kalender/frontend/Start-site/start-site.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-clipboard-list"></i> Tasks</a></li>
+            <li><a href="#"><i class="fas fa-calendar-alt"></i> Calendar</a></li>
+            <li><a href="#"><i class="fas fa-search"></i> Search</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Resources</a></li>
+            <li><a href="#"><i class="fas fa-comments"></i> Forum</a></li>
         </ul>
     </nav>
 
@@ -35,6 +40,8 @@
     <main>
         <article>
             <h2>Your Daily University Planner</h2>
+            <p>Welcome to Uniplaner, your all-in-one university planner.</p>
+            <p>Stay organized and never miss an important event!</p>
         </article>
         <aside>
             <p>Function 1</p>
@@ -43,10 +50,29 @@
     </main>
 
     <div id="calendar"></div>
-    <div id="loginContainer"></div>
+
+    <div class="comment-container">
+        <h3>Comments</h3>
+
+        <textarea id="comment-input" placeholder="Add a comment..."></textarea>
+        <a class="submit-button">Submit</a>
+    </div>
+    <div class="extra-container">
+        <h2>Student Feedback</h2>
+        <p>Rate and review your professors and courses here.</p>
+        <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+          </div>
+        <h2>Announcements</h2>
+        <p>Professor John Smith: The final exam will be on December 15th, 2024.</p>
+    </div>
 
     <footer>
-        <p>&copy; 2024 University Course Planning</p>
+        <p>&copy; 2024 Uniplaner. All rights reserved.</p>
     </footer>
 
 </body>

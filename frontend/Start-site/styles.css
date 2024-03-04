@@ -93,36 +93,11 @@ header {
   color: black
 }
 
-.dropdown-right {
-  position: relative;
-}
-
 .contact-link {
   padding-right: 20px;
 }
 
-.dropdown-content-right {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 45px;
-  left : 150px;
-  background-color: #f9f9f9;
-  min-width: 120px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content-right a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content-right a:hover {background-color: #f1f1f1}
-
-.dropdown-right:hover .dropdown-content-right {
+.dropdown-right:hover  {
   display: block;
 }
 
@@ -451,7 +426,9 @@ ul li {
   border-top: 1px solid #fff;
 }
 
-
+.footer-section a{
+  color : #007bff
+}
 .footer-section h3{
   color: #4CAF50
 }

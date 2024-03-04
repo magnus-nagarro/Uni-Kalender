@@ -10,7 +10,7 @@ header {
     padding: 20px;
     color: #ffffff;
     text-align: center;
-    background-color: #4a3764;
+    background-color: #1a2639;
 }
 
 .logo-container {
@@ -36,35 +36,19 @@ h1 {
     border: 1px solid #140a0a;
     background-color: #000000;
 }
-
-.login>a {
-    color: #ffffff;
-    background-color: #4CAF50;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+.user-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
 }
 
-.login a:hover {
-    background-color: red;
-    color: black
-}
-
-.login { 
-    margin-left: auto;
-}
-
-#registerLink {
-    font-size: 10px;
+.user-container p {
+    margin: 0;
 }
 
 nav {
-    background-color: #48f3db;
+    background-color: #95ce97;
     display: flex;
     justify-content: flex-end;
     padding: 10px;
@@ -108,11 +92,79 @@ aside {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #4a3764;
+    background-color: #1a2639;
     color: #ffffff;
     margin-top : 100px;
 }
 
 #calendar {
-    max-width: calc(100% - 330px);
+    margin-left: 15px;
+    max-width: calc(100% - 30px);
 }
+
+.comment-container {
+    background-color: #ececec;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.comment-container h3 {
+    color: #333;
+}
+
+#comment-input {
+    width: 98%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.submit-button {
+    color: #ffffff;
+    background-color: #306c32;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 55px;
+    height: 15px;
+}
+
+
+.extra-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.extra-container h2 {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.extra-container p {
+    margin-bottom: 10px;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  
+  .star {
+    color: #ccc;
+    font-size: 35px;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .star:hover,
+  .star:hover ~ .star {
+    color: #ffcc00;
+  }

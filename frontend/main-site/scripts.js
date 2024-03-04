@@ -63,3 +63,14 @@ var calendarInstance1 = new calendarJs("calendar", {
     }
 });
 
+
+
+
+const stars = document.querySelectorAll('.star');
+
+stars.forEach(star => {
+  star.addEventListener('click', e => {
+    const value = e.target.dataset.value;
+    console.log('Rating:', value);
+  });
+});
