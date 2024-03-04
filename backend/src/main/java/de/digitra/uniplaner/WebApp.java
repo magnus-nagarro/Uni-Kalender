@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
+//Api calls with http://127.0.0.1:9090/...
 @SpringBootApplication
 @OpenAPIDefinition(info = @Info(title = "Uniplaner API", version = "1.0", description = "REST API für das Backend einer Anwendung zur Vorlesungsplanung"))
 public class WebApp {
