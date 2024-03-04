@@ -3,6 +3,8 @@
 <head>
 	<title>Test</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
 </head>
 <body>
 	<header>
@@ -38,10 +40,15 @@
 				<button class="button-slide" data-slide="2"></button>
 			</div>
 		</div>
-        <div class="information-container">
-            <div class="text-on-top">
-                <p> Some Advantages of Our Project!</p>
+        <div class="introduction-container">
+            <div class="content">
+              <h1>Welcome to the Innovative Course Planning Project</h1>
+              <p>Facilitating seamless collaboration between professors and students in the academic realm.</p>
+              <p>Our user-friendly platform revolutionizes course scheduling, fostering a rich learning environment.</p>
+              <p>Join us on this journey to reimagine course planning, where collaboration takes center stage, shaping an engaging educational experience for all.</p>
             </div>
+          </div>
+        <div class="information-container">
             <button class="arrow arrow-left" onclick="changeInformation(-1)">&#8249;</button>
             <div class="icon-container">
                    <img src="./information-container-icons/student-friendly.png" alt="Icon 1">
@@ -81,18 +88,63 @@
             </div>
             <button class="arrow arrow-right" onclick="changeInformation(1)">&#8250;</button>
         </div>
-        <div class="extra-container-to-use">
+        <div class="testimonials-container">
+            <h2>User Testimonials</h2>
+            <div class="testimonial">
+                <img src="./testimonial-pictures/professor-picture.jpg" alt="User 1">
+                <p>"Uniplaner has transformed the way I plan my courses. It's intuitive, user-friendly, and has made my academic life much more organized."</p>
+                <span>- John Doe, Professor</span>
+            </div>
+            <div class="testimonial">
+                <img src="./testimonial-pictures/student-picture.jpg" alt="User 2">
+                <p>"I love how Uniplaner brings professors and students together. The real-time updates keep us all on the same page, enhancing communication and collaboration."</p>
+                <span>- Jane Smith, Student</span>
+            </div>
+        </div>
+<div class="latest-updates-container">
+    <h2>Latest Updates</h2>
+    <div class="update-card">
+        <h3>New Feature: Mobile App Launch</h3>
+        <p>Access your course planner on the go with our new mobile app. Download it now!</p>
+        <span class="date">March 15, 2024</span>
+    </div>
+    <div class="update-card">
+        <h3>Upcoming Webinar: Time Management Tips</h3>
+        <p>Join our webinar on effective time management strategies for students and professors.</p>
+        <span class="date">April 5, 2024</span>
+    </div>
+</div>
 
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Welcome to Uniplaner - where education meets innovation. We're a dedicated team working to revolutionize course planning for professors and students alike. Our mission is to provide a user-friendly platform that simplifies scheduling and fosters collaboration. Join us in reshaping the future of course planning!</p>
         </div>
-        <div class="introduction-container">
-            <p>
-                Welcome to the innovative course planning project, a dynamic platform designed to facilitate seamless collaboration between professors and students in the academic realm. Recognizing the pivotal role that effective course planning plays in fostering a rich learning environment, we have developed a user-friendly and intuitive system to streamline the process and enhance the overall educational experience.
-                This project aims to revolutionize the traditional approach to course scheduling by harnessing the power of technology to create a more efficient, transparent, and adaptable system. By providing a centralized hub for professors and students to collaboratively plan their academic journeys, we aspire to foster a stronger sense of engagement, communication, and mutual understanding.
-                Our platform empowers professors to easily design and manage course schedules, taking into consideration both curriculum requirements and the individual needs of students. Simultaneously, students gain the ability to actively participate in the course planning process, expressing preferences and contributing valuable input. This two-way communication not only optimizes the allocation of resources but also cultivates a sense of shared responsibility and accountability.
-                In an era where flexibility and adaptability are paramount, our project leverages cutting-edge technology to offer real-time updates, personalized notifications, and data-driven insights. This ensures that course planning remains a dynamic and responsive process, evolving in sync with the ever-changing educational landscape.
-                Join us on this journey to reimagine course planning, where collaboration between professors and students takes center stage, shaping a more engaging and tailored educational experience for all. Together, let's embrace the future of education through effective and inclusive course planning.
-            </p>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
         </div>
+        <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <p>Follow us on social media for the latest updates and news.</p>
+            <div class="social-icons">
+                <img src="./footer-icons/DHBW-Logo-nur-Signet.png" class="dhbw-logo-icon">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-facebook"></i>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Uniplaner. All rights reserved.</p>
+    </div>
+</footer>
+
 		<script src="script.js"></script>
 	</main>
 </body>

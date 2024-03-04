@@ -41,3 +41,5 @@ function changeInformation(direction) {
     }
     iconContainers[currentIconIndex].classList.remove('hide');
 }
+
+
