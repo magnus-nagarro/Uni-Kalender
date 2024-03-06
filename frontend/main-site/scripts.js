@@ -64,8 +64,6 @@ var calendarInstance1 = new calendarJs("calendar", {
 });
 
 
-
-
 const stars = document.querySelectorAll('.star');
 
 stars.forEach(star => {
