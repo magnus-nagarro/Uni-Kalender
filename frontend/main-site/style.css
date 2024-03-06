@@ -26,6 +26,7 @@ h1 {
     color: #ffffff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-left: 10px;
+    display: inline-block
 }
 
 .top-bar {
@@ -115,7 +116,10 @@ footer {
 #comment-input {
     width: 98%;
     margin-top: 10px;
+    min-width: 98%;
     padding: 10px;
+    min-height: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .submit-button {
@@ -133,6 +137,9 @@ footer {
     height: 15px;
 }
 
+#emojiLogo {
+    cursor: pointer;
+  }
 
 .rating-container {
     display: flex;

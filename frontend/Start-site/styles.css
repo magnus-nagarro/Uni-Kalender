@@ -9,6 +9,8 @@ body {
 
 h1 {
   margin-left: 10px;
+  color: #ffffff;
+  display: inline-block;
 }
 
 header {
@@ -442,7 +444,7 @@ ul li {
 }
 
 .footer-section a{
-  color : #007bff
+  color : #ffffff
 }
 .footer-section h3{
   color: #4CAF50
@@ -461,3 +463,4 @@ ul li {
     height: 50px; 
     vertical-align: middle;
 }
+
