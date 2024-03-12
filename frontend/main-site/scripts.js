@@ -26,9 +26,8 @@ var calendarInstance1 = new calendarJs("calendar", {
         console.log("Event added");
         var json_event = JSON.stringify(event);
         console.log(json_event);
-        fetch('http://127.0.0.1:9090/lecturedates', {
+        fetch('http://localhost:8080/lecture', {
             method: 'POST',
-            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -69,8 +68,8 @@ var calendarInstance1 = new calendarJs("calendar", {
 const stars = document.querySelectorAll('.star');
 
 stars.forEach(star => {
-  star.addEventListener('click', e => {
-    const value = e.target.dataset.value;
-    console.log('Rating:', value);
-  });
+    star.addEventListener('click', e => {
+        const value = e.target.dataset.value;
+        console.log('Rating:', value);
+    });
 });
