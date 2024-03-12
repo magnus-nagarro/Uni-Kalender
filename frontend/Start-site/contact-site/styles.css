@@ -70,14 +70,3 @@ body {
     justify-content: space-between;
 }
 
-.address-column,
-.email-column,
-.phone-column {
-    width: 30%; /* Adjust the width as needed */
-}
-
-.address-column h3,
-.email-column h4,
-.phone-column p {
-    margin-bottom: 10px;
-}
