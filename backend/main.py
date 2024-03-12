@@ -35,9 +35,22 @@ class Lecture():
         pass
 
 
+class Lecturer():
+    def __init__(self, name, e_mail) -> None:
+        self.name = name,
+        self.e_mail = e_mail
+
+    def return_info_json(self):
+        return {
+            "name": self.name,
+            "e_mail": self.e_mail
+        }
+
+
 class Backend():
     def __init__(self) -> None:
         self.lectures = list()
+        self.lecturers = list()
 
     def create_app(self):
         app = Flask(__name__)
@@ -48,7 +61,7 @@ class Backend():
             return jsonify({"success": True,
                             "message": "Hello World"})
 
-        # GET mit /lecture?id=""
+        # GET mit /lecture?name="" mit dem namen des Dozenten
         # POST mit den Eventdaten als Body
         @app.route('/lecture', methods=["POST", "GET"])
         def lectures():
@@ -67,6 +80,28 @@ class Backend():
                     print(self.lectures)
                     return jsonify({"success": True,
                                     "message": "Added lecture to the list"})
+                except Exception as e:
+                    print(e)
+                    return f"Error processing event data: {e}", 500
+            elif request.method == "GET":
+                organizerName = request.args.get('name')
+                for lecture in self.lectures:
+                    if lecture['organizerName'] == organizerName:
+                        pass
+
+        # GET mit /lecturer?name=""
+        # POST mit den Dozentendaten als Body
+        @app.route('/lecturer', methods=["POST", "GET"])
+        def lecturer():
+            if request.method == "POST":
+                try:
+                    json_lecturer = request.get_json()
+                    new_lecturer = Lecturer(
+                        json_lecturer['name'], json_lecturer['e_mail'])
+                    self.lecturers.append(new_lecturer)
+                    print(self.lecturers)
+                    return jsonify({"success": True,
+                                    "message": "Added lecturer to the list"})
                 except Exception as e:
                     print(e)
                     return f"Error processing event data: {e}", 500
