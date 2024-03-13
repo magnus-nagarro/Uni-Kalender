@@ -94,17 +94,17 @@ class Backend():
 
         # GET with /lecture
         # POST with the eventdata as body -> creates new Events or updates exisitng ones
-        @app.route('/lecture', methods=["POST", "GET"])
+        # DELETE with /lecture?id="" deletes that object
+        @app.route('/lecture', methods=["POST", "GET", "DELETE"])
         def lectures():
             if request.method == "POST":
                 try:
-                    json_event = request.get_json()
                     if self.current_user == None:
                         return jsonify({"success": False,
                                         "message": "User not found!"})
+                    json_event = request.get_json()
                     for lecture in self.lectures:
                         if lecture.id == json_event["id"]:
-                            print("Detected already existing event getting updated")
                             lecture.start = json_event['from']
                             lecture.end = json_event['to']
                             lecture.title = json_event['title']
@@ -129,7 +129,7 @@ class Backend():
                             lecture.lastUpdated = json_event["lastUpdated"]
                             print(self.lectures)
                             return jsonify({"success": True,
-                                            "message": "Added lecture to the list"})
+                                            "message": "Updated lecture"})
 
                     new_lecture = Lecture(json_event['from'], json_event['to'], json_event['title'], json_event['description'], json_event['location'], json_event['group'], json_event['isAllDay'],
                                           json_event['showAlerts'], json_event['showAsBusy'], json_event['color'], json_event[
@@ -157,9 +157,24 @@ class Backend():
                         counter += 1
                 return_dict[-1] = counter
                 return jsonify(return_dict)
+            elif request.method == "DELETE":
+                if self.current_user == None:
+                    return jsonify({"success": False,
+                                    "message": "User not found!"})
+                json_event = request.get_json()
+                del_id = json_event['id']
+                for lecture in self.lectures:
+                    if lecture.organizerName != self.current_user.name[0]:
+                        continue
+                    if lecture.id == del_id:
+                        self.lectures.remove(lecture)
+                        break
+                return jsonify({"success": True,
+                                "message": "Removed lecture from the list"})
 
         # GET with /lecturer?name=""
         # POST with den Dozentendaten als Body
+
         @app.route('/lecturer', methods=["POST", "GET"])
         def lecturer():
             if request.method == "POST":

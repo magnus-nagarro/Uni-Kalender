@@ -70,6 +70,23 @@ var calendarInstance1 = new calendarJs("calendar", {
     //Remove Events from the backend
     onEventRemoved: function (event) {
         console.log("Event deleted");
+        var delete_data = JSON.stringify(event);
+        fetch('http://localhost:8080/lecture', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: delete_data,
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                console.log('Event data deleted successfully.');
+            })
+            .catch(error => {
+                console.error('Error saving event data:', error);
+            });
     },
 
     //Pull Events from the backend and import them from json
