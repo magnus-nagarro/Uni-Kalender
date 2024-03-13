@@ -103,17 +103,33 @@ class Backend():
                         return jsonify({"success": False,
                                         "message": "User not found!"})
                     for lecture in self.lectures:
-                        print(lecture.id)
-                        print(json_event["id"])
                         if lecture.id == json_event["id"]:
-                            lecture = Lecture(json_event['from'], json_event['to'], json_event['title'], json_event['description'], json_event['location'], json_event['group'], json_event['isAllDay'],
-                                              json_event['showAlerts'], json_event['showAsBusy'], json_event['color'], json_event[
-                                              'colorText'], json_event['colorBorder'], json_event['repeatEveryExcludeDays'],
-                                              json_event['repeatEnds'], json_event['url'], json_event[
-                                              'repeatEveryCustomValue'], json_event['repeatEvery'], json_event['repeatEveryCustomType'],
-                                              self.current_user.name[0], self.current_user.e_mail, json_event[
-                                              'type'], json_event['locked'], json_event['customTags'], json_event['alertOffset'],
-                                              json_event['id'], json_event['created'], json_event['lastUpdated'])
+                            print("Detected already existing event getting updated")
+                            lecture.start = json_event['from']
+                            lecture.end = json_event['to']
+                            lecture.title = json_event['title']
+                            lecture.description = json_event["description"]
+                            lecture.location = json_event["location"]
+                            lecture.group = json_event["group"]
+                            lecture.isAllDay = json_event["isAllDay"]
+                            lecture.showAlerts = json_event["showAlerts"]
+                            lecture.showAsBusy = json_event["showAsBusy"]
+                            lecture.color = json_event["color"]
+                            lecture.colorText = json_event["colorText"]
+                            lecture.colorBorder = json_event["colorBorder"]
+                            lecture.repeatEveryExcludeDays = json_event["repeatEveryExcludeDays"]
+                            lecture.repeatEnds = json_event["repeatEnds"]
+                            lecture.url = json_event["url"]
+                            lecture.repeatEveryCustomValue = json_event["repeatEveryCustomValue"]
+                            lecture.repeatEvery = json_event["repeatEvery"]
+                            lecture.repeatEveryCustomType = json_event["repeatEveryCustomType"]
+                            lecture.organizerName = self.current_user.name[0]
+                            lecture.organizerEmail = self.current_user.e_mail
+                            lecture.created = json_event["created"]
+                            lecture.lastUpdated = json_event["lastUpdated"]
+                            print(self.lectures)
+                            return jsonify({"success": True,
+                                            "message": "Added lecture to the list"})
 
                     new_lecture = Lecture(json_event['from'], json_event['to'], json_event['title'], json_event['description'], json_event['location'], json_event['group'], json_event['isAllDay'],
                                           json_event['showAlerts'], json_event['showAsBusy'], json_event['color'], json_event[

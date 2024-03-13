@@ -60,7 +60,7 @@ var calendarInstance1 = new calendarJs("calendar", {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                console.log('Event data saved successfully.');
+                console.log('Event data updated successfully.');
             })
             .catch(error => {
                 console.error('Error saving event data:', error);
