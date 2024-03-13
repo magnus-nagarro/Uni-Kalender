@@ -123,7 +123,6 @@ class Backend():
                                               'type'], json_event['locked'], json_event['customTags'], json_event['alertOffset'],
                                           json_event['id'], json_event['created'], json_event['lastUpdated'])
                     self.lectures.append(new_lecture)
-                    print(self.lectures)
                     return jsonify({"success": True,
                                     "message": "Added lecture to the list"})
                 except Exception as e:
@@ -136,8 +135,6 @@ class Backend():
                     return jsonify({"success": False,
                                     "message": "User not found!"})
                 for lecture in self.lectures:
-                    print(lecture.organizerName)
-                    print(self.current_user.name[0])
                     if lecture.organizerName == self.current_user.name[0]:
                         counter += 1
                         return_dict[counter] = lecture.return_info_json()
