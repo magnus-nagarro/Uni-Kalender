@@ -1,7 +1,7 @@
-*{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
 
+  *{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
 
 body {
 	font-family: Arial, sans-serif;
@@ -464,3 +464,36 @@ ul li {
     vertical-align: middle;
 }
 
+@media screen and (max-width: 768px) {
+  .social-icons i {
+    width: 50px; 
+    height: 50px;
+  }
+
+  .logo{
+    width: 40px;
+    height: 40px;
+  }
+  
+  .logo-container {
+    font-size: 10px;
+  }
+
+  .header h1 {
+    margin-left: 0; 
+    display: block;
+  }
+  .login>a {
+    padding: 3px 10px; 
+    font-size: 13px; 
+  }
+
+  .login {
+    right: 10px;
+    top: 10px;
+  }
+
+ .arrow-left {
+  left: 10px;
+ }
+}
