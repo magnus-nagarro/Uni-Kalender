@@ -49,6 +49,22 @@ var calendarInstance1 = new calendarJs("calendar", {
         console.log("Event updated");
         var updated_data = JSON.stringify(event);
         console.log(updated_data);
+        fetch('http://localhost:8080/lecture', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: updated_data,
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                console.log('Event data saved successfully.');
+            })
+            .catch(error => {
+                console.error('Error saving event data:', error);
+            });
     },
 
     //Remove Events from the backend
@@ -95,7 +111,7 @@ stars.forEach(star => {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Retrieve the username from the URL query parameter
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');

@@ -103,6 +103,8 @@ class Backend():
                         return jsonify({"success": False,
                                         "message": "User not found!"})
                     for lecture in self.lectures:
+                        print(lecture.id)
+                        print(json_event["id"])
                         if lecture.id == json_event["id"]:
                             lecture = Lecture(json_event['from'], json_event['to'], json_event['title'], json_event['description'], json_event['location'], json_event['group'], json_event['isAllDay'],
                                               json_event['showAlerts'], json_event['showAsBusy'], json_event['color'], json_event[
@@ -159,23 +161,32 @@ class Backend():
                 pass
 
         # POST mit /signin?e-mail=""&password=""
-        @app.route('/signin', methods=["POST"])
+        @app.route('/signin', methods=["POST", "GET"])
         def sign_in():
-            e_mail = request.args.get('e-mail')
-            password = request.args.get('password')
-            for lecturer in self.lecturers:
-                if lecturer.e_mail == e_mail:
-                    if str(lecturer.password) != password:
-                        return jsonify({
-                            "Success": False,
-                            "Message": "User not found!"
-                        })
-                    self.current_user = lecturer
-                    return jsonify(lecturer.return_info_json())
-            return jsonify({
-                "Success": False,
-                "Message": "User not found!"
-            })
+            if request.method == "POST":
+                e_mail = request.args.get('e-mail')
+                password = request.args.get('password')
+                for lecturer in self.lecturers:
+                    if lecturer.e_mail == e_mail:
+                        if str(lecturer.password) != password:
+                            return jsonify({
+                                "Success": False,
+                                "Message": "User not found!"
+                            })
+                        self.current_user = lecturer
+                        return jsonify(lecturer.return_info_json())
+                return jsonify({
+                    "Success": False,
+                    "Message": "User not found!"
+                })
+            elif request.method == "GET":
+                if self.current_user == None:
+                    return jsonify({
+                        "Success": False,
+                        "Message": "User not found!"
+                    })
+                else:
+                    return jsonify(self.current_user.return_info_json())
 
         return app
 
