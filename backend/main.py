@@ -133,8 +133,9 @@ class Backend():
                                     "message": "User not found!"})
                 for lecture in self.lectures:
                     if lecture.organizerName == self.current_user.name[0]:
-                        counter += 1
                         return_dict[counter] = lecture.return_info_json()
+                        counter += 1
+                return_dict[-1] = counter
                 return jsonify(return_dict)
 
         # GET mit /lecturer?name=""

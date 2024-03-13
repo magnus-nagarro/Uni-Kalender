@@ -69,18 +69,19 @@ var calendarInstance1 = new calendarJs("calendar", {
                 return response.json();
             })
             .then(data => {
-                console.log(data)
-                console.log(data.length)
-                for (let i = 0; i < data.length; i++) {
-                    const lecture = data[i];
-                    console.log(lecture)
-                    setEventsFromJson(lecture, false, false);
+                console.log(data);
+                length = parseInt(data[-1]);
+                for (let i = 0; i < length; i++) {
+                    var buff = {
+                        "events": [data[i]]
+                    }
+                    calendarInstance1.addEventsFromJson(JSON.stringify(buff));
                 }
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
             });
-    }
+    },
 });
 
 
