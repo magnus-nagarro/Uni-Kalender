@@ -59,6 +59,27 @@ var calendarInstance1 = new calendarJs("calendar", {
     //Pull Events from the backend and import them from json
     onRender: function (event) {
         console.log("Calendar rendered");
+        fetch('http://localhost:8080/lecture', {
+            method: 'GET',
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data)
+                console.log(data.length)
+                for (let i = 0; i < data.length; i++) {
+                    const lecture = data[i];
+                    console.log(lecture)
+                    setEventsFromJson(lecture, false, false);
+                }
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
     }
 });
 

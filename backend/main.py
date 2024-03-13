@@ -74,9 +74,6 @@ class Lecturer():
             "e_mail": self.e_mail
         }
 
-    def get_name(self):
-        return self.name[0]
-
 
 class Backend():
     def __init__(self) -> None:
@@ -158,12 +155,12 @@ class Backend():
             elif request.method == "GET":
                 pass
 
-        # POST mit /signin?name=""
+        # POST mit /signin?e-mail=""
         @app.route('/signin', methods=["POST"])
         def sign_in():
-            name = request.args.get('name')
+            e_mail = request.args.get('e-mail')
             for lecturer in self.lecturers:
-                if lecturer.get_name() == name:
+                if lecturer.e_mail == e_mail:
                     self.current_user = lecturer
                     return jsonify(lecturer.return_info_json())
             return jsonify({
