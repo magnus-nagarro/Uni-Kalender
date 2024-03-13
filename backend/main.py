@@ -64,14 +64,16 @@ class Lecture():
 
 
 class Lecturer():
-    def __init__(self, name, e_mail) -> None:
+    def __init__(self, name, e_mail, password) -> None:
         self.name = name,
         self.e_mail = e_mail
+        self.password = password
 
     def return_info_json(self):
         return {
             "name": self.name[0],
-            "e_mail": self.e_mail
+            "e_mail": self.e_mail,
+            "password": self.password
         }
 
 
@@ -133,8 +135,9 @@ class Backend():
                                     "message": "User not found!"})
                 for lecture in self.lectures:
                     if lecture.organizerName == self.current_user.name[0]:
-                        counter += 1
                         return_dict[counter] = lecture.return_info_json()
+                        counter += 1
+                return_dict[-1] = counter
                 return jsonify(return_dict)
 
         # GET mit /lecturer?name=""
@@ -145,7 +148,7 @@ class Backend():
                 try:
                     json_lecturer = request.get_json()
                     new_lecturer = Lecturer(
-                        json_lecturer['name'], json_lecturer['e-mail'])
+                        json_lecturer['name'], json_lecturer['e-mail'], json_lecturer['password'])
                     self.lecturers.append(new_lecturer)
                     return jsonify({"success": True,
                                     "message": "Added lecturer to the list"})
@@ -155,12 +158,18 @@ class Backend():
             elif request.method == "GET":
                 pass
 
-        # POST mit /signin?e-mail=""
+        # POST mit /signin?e-mail=""?password=""
         @app.route('/signin', methods=["POST"])
         def sign_in():
             e_mail = request.args.get('e-mail')
+            password = request.args.get('password')
             for lecturer in self.lecturers:
                 if lecturer.e_mail == e_mail:
+                    if str(lecturer.password) != password:
+                        return jsonify({
+                            "Success": False,
+                            "Message": "User not found!"
+                        })
                     self.current_user = lecturer
                     return jsonify(lecturer.return_info_json())
             return jsonify({
