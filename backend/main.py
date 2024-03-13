@@ -163,10 +163,8 @@ class Backend():
         def sign_in():
             e_mail = request.args.get('e-mail')
             password = request.args.get('password')
-            print(password)
             for lecturer in self.lecturers:
                 if lecturer.e_mail == e_mail:
-                    print(lecturer.password)
                     if str(lecturer.password) != password:
                         return jsonify({
                             "Success": False,
