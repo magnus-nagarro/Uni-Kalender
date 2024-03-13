@@ -92,8 +92,8 @@ class Backend():
             return jsonify({"success": True,
                             "message": "Hello World"})
 
-        # GET mit /lecture
-        # POST mit den Eventdaten als Body, erstellt neue lectures und updated bestehende
+        # GET with /lecture
+        # POST with the eventdata as body -> creates new Events or updates exisitng ones
         @app.route('/lecture', methods=["POST", "GET"])
         def lectures():
             if request.method == "POST":
@@ -142,8 +142,8 @@ class Backend():
                 return_dict[-1] = counter
                 return jsonify(return_dict)
 
-        # GET mit /lecturer?name=""
-        # POST mit den Dozentendaten als Body
+        # GET with /lecturer?name=""
+        # POST with den Dozentendaten als Body
         @app.route('/lecturer', methods=["POST", "GET"])
         def lecturer():
             if request.method == "POST":
@@ -160,7 +160,8 @@ class Backend():
             elif request.method == "GET":
                 pass
 
-        # POST mit /signin?e-mail=""&password=""
+        # POST with /signin?e-mail=""&password=""
+        # GET with /signin returns False/user not found if not logged in, and returns userdata if logged in
         @app.route('/signin', methods=["POST", "GET"])
         def sign_in():
             if request.method == "POST":
