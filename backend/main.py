@@ -158,7 +158,7 @@ class Backend():
             elif request.method == "GET":
                 pass
 
-        # POST mit /signin?e-mail=""?password=""
+        # POST mit /signin?e-mail=""&password=""
         @app.route('/signin', methods=["POST"])
         def sign_in():
             e_mail = request.args.get('e-mail')
