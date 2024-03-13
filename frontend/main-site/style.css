@@ -29,6 +29,10 @@ h1 {
     display: inline-block
 }
 
+.user-name{
+    color: red
+}
+
 .top-bar {
     display: flex;
     justify-content: space-between;

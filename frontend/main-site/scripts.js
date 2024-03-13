@@ -93,3 +93,13 @@ stars.forEach(star => {
         console.log('Rating:', value);
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Retrieve the username from the URL query parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const username = urlParams.get('username');
+
+    // Update the content of the username span
+    document.getElementById('username').innerText = username;
+});
