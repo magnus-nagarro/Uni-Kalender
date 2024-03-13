@@ -51,6 +51,7 @@ class Backend():
     def __init__(self) -> None:
         self.lectures = list()
         self.lecturers = list()
+        self.current_user = Lecturer()
 
     def create_app(self):
         app = Flask(__name__)
@@ -61,7 +62,7 @@ class Backend():
             return jsonify({"success": True,
                             "message": "Hello World"})
 
-        # GET mit /lecture?name="" mit dem namen des Dozenten
+        # GET mit /lecture
         # POST mit den Eventdaten als Body
         @app.route('/lecture', methods=["POST", "GET"])
         def lectures():
@@ -73,7 +74,7 @@ class Backend():
                                               'colorText'], json_event['colorBorder'], json_event['repeatEveryExcludeDays'],
                                           json_event['repeatEnds'], json_event['url'], json_event[
                                               'repeatEveryCustomValue'], json_event['repeatEvery'], json_event['repeatEveryCustomType'],
-                                          json_event['organizerName'], json_event['organizerEmailAddress'], json_event[
+                                          self.current_user.name, self.current_user.e_mail, json_event[
                                               'type'], json_event['locked'], json_event['customTags'], json_event['alertOffset'],
                                           json_event['id'], json_event['created'], json_event['lastUpdated'])
                     self.lectures.append(new_lecture)
@@ -84,9 +85,8 @@ class Backend():
                     print(e)
                     return f"Error processing event data: {e}", 500
             elif request.method == "GET":
-                organizerName = request.args.get('name')
                 for lecture in self.lectures:
-                    if lecture['organizerName'] == organizerName:
+                    if lecture['organizerName'] == self.current_user.name:
                         pass
 
         # GET mit /lecturer?name=""
@@ -107,6 +107,19 @@ class Backend():
                     return f"Error processing event data: {e}", 500
             elif request.method == "GET":
                 pass
+
+        # POST mit /signin?name=""
+        @app.route('/signin', methods=["POST"])
+        def sign_in():
+            name = request.args.get('name')
+            for lecturer in self.lecturers:
+                if lecturer.name == name:
+                    self.current_user = lecturer
+                    return jsonify(lecturer.return_info_json())
+            return jsonify({
+                "Success": False,
+                "Message": "User not found!"
+            })
 
         return app
 
