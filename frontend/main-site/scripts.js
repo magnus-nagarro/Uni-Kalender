@@ -50,7 +50,7 @@ var calendarInstance1 = new calendarJs("calendar", {
         var updated_data = JSON.stringify(event);
         console.log(updated_data);
         fetch('http://localhost:8080/lecture', {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },

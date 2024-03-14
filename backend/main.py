@@ -95,7 +95,8 @@ class Backend():
         # GET with /lecture
         # POST with the eventdata as body -> creates new Events or updates exisitng ones
         # DELETE with /lecture?id="" deletes that object
-        @app.route('/lecture', methods=["POST", "GET", "DELETE"])
+
+        @app.route('/lecture', methods=["POST", "GET", "DELETE", "PUT"])
         def lectures():
             if request.method == "POST":
                 try:
@@ -103,34 +104,6 @@ class Backend():
                         return jsonify({"success": False,
                                         "message": "User not found!"})
                     json_event = request.get_json()
-                    for lecture in self.lectures:
-                        if lecture.id == json_event["id"]:
-                            lecture.start = json_event['from']
-                            lecture.end = json_event['to']
-                            lecture.title = json_event['title']
-                            lecture.description = json_event["description"]
-                            lecture.location = json_event["location"]
-                            lecture.group = json_event["group"]
-                            lecture.isAllDay = json_event["isAllDay"]
-                            lecture.showAlerts = json_event["showAlerts"]
-                            lecture.showAsBusy = json_event["showAsBusy"]
-                            lecture.color = json_event["color"]
-                            lecture.colorText = json_event["colorText"]
-                            lecture.colorBorder = json_event["colorBorder"]
-                            lecture.repeatEveryExcludeDays = json_event["repeatEveryExcludeDays"]
-                            lecture.repeatEnds = json_event["repeatEnds"]
-                            lecture.url = json_event["url"]
-                            lecture.repeatEveryCustomValue = json_event["repeatEveryCustomValue"]
-                            lecture.repeatEvery = json_event["repeatEvery"]
-                            lecture.repeatEveryCustomType = json_event["repeatEveryCustomType"]
-                            lecture.organizerName = self.current_user.name[0]
-                            lecture.organizerEmail = self.current_user.e_mail
-                            lecture.created = json_event["created"]
-                            lecture.lastUpdated = json_event["lastUpdated"]
-                            print(self.lectures)
-                            return jsonify({"success": True,
-                                            "message": "Updated lecture"})
-
                     new_lecture = Lecture(json_event['from'], json_event['to'], json_event['title'], json_event['description'], json_event['location'], json_event['group'], json_event['isAllDay'],
                                           json_event['showAlerts'], json_event['showAsBusy'], json_event['color'], json_event[
                                               'colorText'], json_event['colorBorder'], json_event['repeatEveryExcludeDays'],
@@ -145,6 +118,38 @@ class Backend():
                 except Exception as e:
                     print(e)
                     return f"Error processing event data: {e}", 500
+            elif request.method == "PUT":
+                if self.current_user == None:
+                    return jsonify({"success": False,
+                                    "message": "User not found!"})
+                json_event = request.get_json()
+                for lecture in self.lectures:
+                    if lecture.id == json_event["id"]:
+                        lecture.start = json_event['from']
+                        lecture.end = json_event['to']
+                        lecture.title = json_event['title']
+                        lecture.description = json_event["description"]
+                        lecture.location = json_event["location"]
+                        lecture.group = json_event["group"]
+                        lecture.isAllDay = json_event["isAllDay"]
+                        lecture.showAlerts = json_event["showAlerts"]
+                        lecture.showAsBusy = json_event["showAsBusy"]
+                        lecture.color = json_event["color"]
+                        lecture.colorText = json_event["colorText"]
+                        lecture.colorBorder = json_event["colorBorder"]
+                        lecture.repeatEveryExcludeDays = json_event["repeatEveryExcludeDays"]
+                        lecture.repeatEnds = json_event["repeatEnds"]
+                        lecture.url = json_event["url"]
+                        lecture.repeatEveryCustomValue = json_event["repeatEveryCustomValue"]
+                        lecture.repeatEvery = json_event["repeatEvery"]
+                        lecture.repeatEveryCustomType = json_event["repeatEveryCustomType"]
+                        lecture.organizerName = self.current_user.name[0]
+                        lecture.organizerEmail = self.current_user.e_mail
+                        lecture.created = json_event["created"]
+                        lecture.lastUpdated = json_event["lastUpdated"]
+                        print(self.lectures)
+                        return jsonify({"success": True,
+                                        "message": "Updated lecture"})
             elif request.method == "GET":
                 return_dict = dict()
                 counter = int()
