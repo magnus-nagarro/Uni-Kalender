@@ -13,11 +13,8 @@ login.addEventListener('click', () => {
 
 document.getElementById('signupButton').addEventListener('click', function() {
     var name = document.getElementById('nameInput').value;
-    console.log ("name" , name)
     var email = document.getElementById('emailInput').value;
-    console.log ("mail", email)
     var password = document.getElementById("passwordInput").value
-    console.log ("password", password)
 
     // Create a data object to send to the backend
     var data = {
@@ -41,6 +38,7 @@ document.getElementById('signupButton').addEventListener('click', function() {
         console.log('User signed up successfully');
         alert('User signed up successfully');
         const signedUpUsername = name;
+        //window.location.href ="../Start-site/start-site.html"
         window.location.href = "../main-site/main.html?username=" + encodeURIComponent(signedUpUsername);
     })
     .catch(error => {
@@ -52,10 +50,8 @@ document.getElementById('signupButton').addEventListener('click', function() {
 
 document.getElementById('loginButton').addEventListener('click', function() {
     var login_email = document.getElementById('loginemailInput').value;
-    console.log("email", login_email);
     var login_password = document.getElementById('loginPassword').value;
-    console.log("email", login_password);
-
+    
 
     // Create a data object to send to the backend
     var data = {
@@ -64,7 +60,7 @@ document.getElementById('loginButton').addEventListener('click', function() {
     };
     data_body = JSON.stringify(data);
 
-    fetch('http://localhost:8080/signin?e-mail=' + encodeURIComponent(login_email)+ "&password=" + encodeURIComponent(login_password), {
+    fetch('http://localhost:8080/signin?e-mail='+encodeURIComponent(login_email)+ "&password=" + encodeURIComponent(login_password), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -82,7 +78,9 @@ document.getElementById('loginButton').addEventListener('click', function() {
                 console.log('User logged in successfully');
                 alert('User logged in successfully');
                 const loggedInUsername = data.name;
+                console.log ("logged name", loggedInUsername)
                 window.location.href = "../main-site/main.html?username=" + encodeURIComponent(loggedInUsername);
+        
             } else {
                 console.log('Login failed: Please check your Username or Password!');
                 alert('Login failed: Please check your Username or Password!');
@@ -92,3 +90,49 @@ document.getElementById('loginButton').addEventListener('click', function() {
             console.error('There was a problem with the sign in:', error);
         });
 });
+
+// Function to set a cookie
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+// Function to get a cookie value by name
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+document.getElementById('signupButton').addEventListener('click', function() {
+    setCookie('loggedIn', 'true', 2); 
+});
+
+document.getElementById('loginButton').addEventListener('click', function() {
+    setCookie('loggedIn', 'true', 2); 
+});
+
+window.addEventListener('load', function() {
+    var loggedInCookie = getCookie('loggedIn');
+    if (loggedInCookie === 'true') {
+        console.log('User is logged in');
+    } else {
+        console.log('User is not logged in');
+    }
+});
+
+function logout() {
+    setCookie('loggedIn', '', -1);
+}
+
+

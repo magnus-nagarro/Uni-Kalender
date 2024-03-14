@@ -119,7 +119,6 @@ var calendarInstance1 = new calendarJs("calendar", {
 
 
 const stars = document.querySelectorAll('.star');
-
 stars.forEach(star => {
     star.addEventListener('click', e => {
         const value = e.target.dataset.value;
@@ -128,11 +127,40 @@ stars.forEach(star => {
 });
 
 
+
 document.addEventListener('DOMContentLoaded', function () {
-    // Retrieve the username from the URL query parameter
     const urlParams = new URLSearchParams(window.location.search);
     const username = urlParams.get('username');
 
-    // Update the content of the username span
     document.getElementById('username').innerText = username;
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var logoutLink = document.getElementById("logout");
+
+    logoutLink.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var confirmLogout = confirm("Are you sure you want to log out?");
+        if (confirmLogout) {
+             window.location.href = "../Start-site/start-site.html";
+        }
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var go_main = document.getElementById("go-main");
+
+    go_main.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        var confirmLogout = confirm("Are you sure you want to Leave?");
+        if (confirmLogout) {
+             window.location.href = "../Start-site/start-site.html";
+        }
+    });
 });

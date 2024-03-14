@@ -29,7 +29,6 @@ changeSlide(0);
 
 
 let currentIconIndex = 0;
-
 function changeInformation(direction) {
     const iconContainers = document.querySelectorAll('.icon-container');
     iconContainers[currentIconIndex].classList.add('hide');
@@ -41,5 +40,6 @@ function changeInformation(direction) {
     }
     iconContainers[currentIconIndex].classList.remove('hide');
 }
+
 
 

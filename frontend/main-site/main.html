@@ -15,22 +15,27 @@
 </head>
 
 <body>
-
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="Logo" class="logo">
            <a href="../Start-site/start-site.html">
-            <h1>Uniplaner</h1>
+            <h1 id="go-main">Uniplaner</h1>
         </a>
         </div>
         <div class="user-container">
-            <p>You are logged in as <span id="username" class="user-name">USER1</span></p>
+            <p>You are logged in as <span id="username" class="user-name">-</span></p>
+            <div class="dropdown">
+                <button class="dropbtn"><i class="fas fa-cog"></i></button>
+                <div class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#" id="logout">Log out</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <nav>
         <ul>
-            <li><a href="../Start-site/start-site.html"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="#"><i class="fas fa-clipboard-list"></i> Tasks</a></li>
             <!--
             <li><a href="#"><i class="fas fa-search"></i> Search</a></li>
