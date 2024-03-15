@@ -19,7 +19,7 @@ body {
   }
   
   .top-bar {
-    background-color: #1a2639;
+    background-color: #303841;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -54,18 +54,18 @@ body {
   }
   
   .contact-info a {
-    color: #007bff;
+    color: #be3144;
     text-decoration: none;
     transition: color 0.3s ease;
   }
   
   .contact-info a:hover {
-    color: #0056b3;
+    color: red;
   }
   
   .contact-container {
     border : 1px solid black;
-    background-color: #f8f8f8;
+    background-color: #d3d6db;
     padding: 20px;
     margin-top: 20px;
     border-radius: 10px;

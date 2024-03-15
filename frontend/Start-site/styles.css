@@ -14,7 +14,7 @@ h1 {
 }
 
 header {
-	background-color: #1a2639;
+	background-color: #3a4750;
 	color: #fff;
 	padding: 1rem;
 	text-align: left;
@@ -40,7 +40,7 @@ header {
 
 .login>a {
     color: #ffffff;
-    background-color: #306c32;
+    background-color:  #be3144;
     border: none;
     padding: 10px 20px;
     text-align: center;
@@ -146,7 +146,7 @@ header {
     justify-content: space-around;
     position: relative;
     display: flex;
-    background-color: #f5f5f5;
+    background-color: #f5f5f500;
   }
 
   .arrow {
@@ -164,7 +164,7 @@ header {
 
 .testimonials-container {
   margin-top: 40px;
-  background-color: #B2D8D8; 
+  background-color:  #be3144; 
   padding: 20px;
   border-radius: 10px;
 }
@@ -200,7 +200,7 @@ header {
 
 .testimonials-container h2 {
   font-size: 24px;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
@@ -222,7 +222,7 @@ header {
 
 .latest-updates-container {
   margin-top: 40px;
-  background-color: #80CBC4;
+  background-color: #3a4750;
   padding: 20px;
   border-radius: 10px;
 }
@@ -254,7 +254,7 @@ header {
 
 .latest-updates-container h2 {
   font-size: 24px;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
@@ -277,7 +277,7 @@ header {
 }
 
 .arrow:hover {
-  color: #4CAF50
+  color:  #be3144
 }
 
 
@@ -310,7 +310,7 @@ header {
   width: 80%;
   margin: 20px auto;
   padding: 20px;
-  background-color: #1a2639;
+  background-color: #3a4750;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -325,7 +325,7 @@ header {
 
 .introduction-container h1 {
   font-size: 24px;
-  color: #4CAF50;
+  color: red;
 }
 
 .introduction-container p {
@@ -410,7 +410,7 @@ header {
 
 
 footer {
-  background-color: #1a2639;
+  background-color: #303841;
   color: #fff;
   text-align: center;
   padding-top: 30px;
@@ -447,7 +447,7 @@ ul li {
   color : #ffffff
 }
 .footer-section h3{
-  color: #4CAF50
+  color: red
 }
 
 .dhbw-logo-icon{

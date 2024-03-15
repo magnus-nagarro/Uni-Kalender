@@ -10,7 +10,7 @@ header {
     padding: 20px;
     color: #ffffff;
     text-align: center;
-    background-color: #1a2639;
+    background-color: #3a4750;
 }
 
 .logo-container {
@@ -41,7 +41,7 @@ h1 {
 
 .dropbtn {
     background-color: transparent;
-    color: #95ce97;
+    color: #be3144;
     padding: 8px 10px;
     font-size: 16px;
     border: none;
@@ -102,7 +102,7 @@ h1 {
 }
 
 nav {
-    background-color: #95ce97;
+    background-color: #be3144;
     display: flex;
     justify-content: flex-end;
     padding: 10px;
@@ -139,7 +139,7 @@ article {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #1a2639;
+    background-color: #303841;
     color: #ffffff;
     margin-top : 100px;
 }
@@ -170,7 +170,7 @@ footer {
 
 .submit-button {
     color: #ffffff;
-    background-color: #306c32;
+    background-color: #be3144;
     border: none;
     padding: 10px 20px;
     text-align: center;

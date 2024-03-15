@@ -15,7 +15,7 @@
   --calendar-js-day-date-picker-hover-color: #a7a7a7;
   --calendar-js-grid-border-color: #B0B0B0;
   --calendar-js-alert-color: #C60000;
-  --calendar-js-event-color: #484848;
+  --calendar-js-event-color: #be3144;
   --calendar-js-event-text-color: var(--calendar-js-light-color);
   --calendar-js-event-color-all-day: #1b3752;
   --calendar-js-event-text-color-all-day: var(--calendar-js-light-color);
@@ -24,7 +24,7 @@
   --calendar-js-input-background-color: #FFFFFF;
   --calendar-js-area-disabled-stripped: rgba( 40, 40, 40, 0.1 );
   --calendar-js-area-disabled-stripped-weekend-day: rgba( 40, 40, 40, 0.2 );
-  --calendar-js-link-color: #2471A3;
+  --calendar-js-link-color: #be3144;
   --calendar-js-input-hover-color: var(--calendar-js-dark-color);
   --calendar-js-primary-button-color: var(--calendar-js-dark-color);
   --calendar-js-secondary-button-color: var(--calendar-js-dark-color);
@@ -59,7 +59,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --calendar-js-dark-color: #1a2639;
+    --calendar-js-dark-color: #3a4750;
     --calendar-js-input-hover-color: var(--calendar-js-dark-color);
     --calendar-js-primary-button-color: var(--calendar-js-dark-color);
     --calendar-js-secondary-button-color: var(--calendar-js-dark-color);
