@@ -16,7 +16,6 @@ document.getElementById('signupButton').addEventListener('click', function() {
     var email = document.getElementById('emailInput').value;
     var password = document.getElementById("passwordInput").value
 
-    // Create a data object to send to the backend
     var data = {
         "name": name,
         "e-mail": email,
@@ -38,8 +37,8 @@ document.getElementById('signupButton').addEventListener('click', function() {
         console.log('User signed up successfully');
         alert('User signed up successfully');
         const signedUpUsername = name;
-        //window.location.href ="../Start-site/start-site.html"
-        window.location.href = "../main-site/main.html?username=" + encodeURIComponent(signedUpUsername);
+        window.location.href ="../Start-site/start-site.html"
+        //window.location.href = "../main-site/main.html?username=" + encodeURIComponent(signedUpUsername);
     })
     .catch(error => {
         console.error('There was a problem with the sign up:', error);
@@ -52,8 +51,6 @@ document.getElementById('loginButton').addEventListener('click', function() {
     var login_email = document.getElementById('loginemailInput').value;
     var login_password = document.getElementById('loginPassword').value;
     
-
-    // Create a data object to send to the backend
     var data = {
         "e-mail": login_email,
         "password": login_password
@@ -80,6 +77,7 @@ document.getElementById('loginButton').addEventListener('click', function() {
                 const loggedInUsername = data.name;
                 console.log ("logged name", loggedInUsername)
                 window.location.href = "../main-site/main.html?username=" + encodeURIComponent(loggedInUsername);
+                localStorage.setItem ("Loggedusername", loggedInUsername)
         
             } else {
                 console.log('Login failed: Please check your Username or Password!');
@@ -91,7 +89,7 @@ document.getElementById('loginButton').addEventListener('click', function() {
         });
 });
 
-// Function to set a cookie
+
 function setCookie(name, value, days) {
     var expires = "";
     if (days) {
@@ -102,7 +100,7 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-// Function to get a cookie value by name
+
 function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');

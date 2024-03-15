@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <div id="blurrContainer"></div> 
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="Logo" class="logo">
@@ -23,14 +24,17 @@
         </a>
         </div>
         <div class="user-container">
-            <p>You are logged in as <span id="username" class="user-name">-</span></p>
+            <p>You are logged in as <span id="username" class="user-name"></span></p>
             <div class="dropdown">
                 <button class="dropbtn"><i class="fas fa-cog"></i></button>
                 <div class="dropdown-content">
                     <a href="#">Profile</a>
-                    <a href="#" id="logout">Log out</a>
+                    <a href="#"  id="logout">Log out</a>
                 </div>
             </div>
+        </div>
+        <div id="loginButton">
+            <p> You are not Logged In, to access the full website please <a id="login" href="../login-elements/login.html">Login</a></p>
         </div>
     </header>
 
