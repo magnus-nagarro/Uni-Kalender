@@ -129,13 +129,17 @@ stars.forEach(star => {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const username = urlParams.get('username');
+    const loggedInUsername = localStorage.getItem('Loggedusername');
 
-    document.getElementById('username').innerText = username;
+    if (loggedInUsername) {
+        localStorage.setItem('username', loggedInUsername);
+        console.log("localStorage Name", localStorage.username);
+
+        document.getElementById('username').innerText = loggedInUsername;
+    } else {
+        console.log("Username not found in localStorage");
+        }
 });
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
     var logoutLink = document.getElementById("logout");
@@ -150,8 +154,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
     var go_main = document.getElementById("go-main");
 
@@ -164,3 +166,67 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.getElementById('logout').addEventListener('click', function() {
+    fetch('http://localhost:8080/logout', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        localStorage.removeItem('Loggedusername');
+        //console.log('User signed up successfully');
+        //alert('User signed up successfully');
+        //const signedUpUsername = name;
+        //window.location.href ="../Start-site/start-site.html"
+        ////window.location.href = "../main-site/main.html?username=" + encodeURIComponent(signedUpUsername);
+    })
+    .catch(error => {
+        console.error('There was a problem with the sign up:', error);
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUsername = localStorage.getItem('Loggedusername');
+    const blurContainer = document.querySelector('blurrContainer');
+    console.log ("WHSSS", loggedInUsername)
+
+    if (loggedInUsername) {
+        blurContainer.style.display = 'none';
+    } else {
+        blurContainer.style.display = 'block';
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUsername = localStorage.getItem('Loggedusername');
+    const blurContainer = document.querySelector('#blurrContainer'); 
+
+    if (loggedInUsername) {
+        blurContainer.style.display = 'none';
+    } else {
+        blurContainer.style.display = 'block';
+        document.body.classList.add('blur-scroll-lock'); 
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUsername = localStorage.getItem('Loggedusername');
+    const userContainer = document.querySelector('.user-container');
+    const loginButton = document.querySelector ("#loginButton") 
+
+    if (loggedInUsername) {
+        userContainer.style.display = 'block';
+        loginButton.style.display = 'none';
+    } else {
+        userContainer.style.display = 'none';
+        loginButton.style.display = 'inline-block';
+    }
+});
+
+

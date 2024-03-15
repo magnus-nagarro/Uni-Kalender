@@ -225,6 +225,15 @@ class Backend():
                 else:
                     return jsonify(self.current_user.return_info_json())
 
+        @app.route("/logout", methods=["POST"])
+        def logout():
+            self.current_user = None
+            print(self.current_user)
+            return jsonify({
+                "Success": True,
+                "Message": "No user logged in!"
+            })
+
         return app
 
 

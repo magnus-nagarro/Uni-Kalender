@@ -1,3 +1,41 @@
+#blurrContainer {
+    position: fixed;
+    width: 1000%;
+    height: 100%;
+    top: 118px;
+    background-color: rgba(66, 53, 53, 0.5); 
+    backdrop-filter: blur(5px); 
+    z-index: 20000 
+}
+
+body.blur-scroll-lock {
+    overflow: hidden;
+}
+
+#loginButton {
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+}
+
+#loginButton a  {
+    color: #ffffff;
+    background-color: #306c32;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#login:hover{
+    background-color: red;
+    color: white
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #ececec;
@@ -232,4 +270,21 @@ footer {
         margin-right: 0px;
     }
     
+    #loginButton {
+        top : 200px;
+        font-size: 25px;
+        z-index: 20001;
+        display: block;
+    }
+
+    #loginButton a  {
+        font-size: 25px;
+        
+    }
+
+    .user-container{
+    position: absolute;
+    top: 2px;
+    right: 0px;
+    }
 }

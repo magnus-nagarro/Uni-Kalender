@@ -42,4 +42,54 @@ function changeInformation(direction) {
 }
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUsername = localStorage.getItem('Loggedusername');
 
+    const loginButton = document.getElementById('loginButton');
+    const username = document.getElementById ("username")
+
+    if (loggedInUsername) {
+        loginButton.style.display = 'none';
+        username.style.display = "inline-block"
+    } else {
+        loginButton.style.display = 'inline-block';
+        username.style.display = "none" 
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUsername = localStorage.getItem('Loggedusername');
+
+    if (loggedInUsername) {
+        localStorage.setItem('username', loggedInUsername);
+        console.log("localStorage Name", localStorage.username);
+
+        document.getElementById('username').innerText = loggedInUsername;
+    } else {
+        console.log("Username not found in localStorage");
+        }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUsername = localStorage.getItem('Loggedusername');
+    const usernameBtn = document.getElementById('usernameBtn');
+    const usernameContent = document.getElementById('usernameContent');
+    
+    if (loggedInUsername) {
+        usernameBtn.innerText = loggedInUsername;
+        usernameContent.style.display = 'block';
+    } else {
+        usernameBtn.innerText = 'Username';
+        usernameContent.style.display = 'none';
+    }
+}); 
+
+document.getElementById('logout').addEventListener('click', function() {
+    var confirmLogout = confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+        localStorage.removeItem('Loggedusername');
+        location.reload();
+    }
+});
